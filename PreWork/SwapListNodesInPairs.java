@@ -1,3 +1,4 @@
+
 /*
 
 Swap List Nodes in pairs
@@ -8,9 +9,7 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
 
 Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.
 
-
 */
-
 
 /**
  * Definition for singly-linked list.
@@ -21,25 +20,28 @@ Your algorithm should use only constant space. You may not modify the values in 
  * }
  */
 public class Solution {
-    public ListNode swapPairs(ListNode a) {
-        if(a==null || a.next==null) {
-            return a;
-        }
-        
-        ListNode result = new ListNode(0);
-        result.next = a;
-        ListNode p = result;
-        
-        while(p.next!=null && p.next.next!=null) {
-            ListNode temp1 = p;
-            p = p.next;
-            temp1.next = p.next;
-            
-            ListNode temp2 = p.next.next;
-            p.next.next = p;
-            p.next = temp2;
-        }
-        
-        return result.next;
-    }
+	public ListNode swapPairs(ListNode a) {
+	    if(a == null || a.next == null) {
+	        return a;
+	    }
+	    
+	    ListNode h = new ListNode(0);
+	    h.next = a;
+	    ListNode p = h;
+	    
+	    while(p.next !=null && p.next.next!=null) {
+	        ListNode t1 = p;
+	        p = p.next;
+	        t1.next = p.next;
+	        
+	        ListNode t2 = p.next.next;
+	        p.next.next = p;
+	        p.next = t2;
+	    }
+	    
+	    return h.next;
+	    
+	    
+	    
+	}
 }
